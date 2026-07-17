@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chef Burguer Piedade | O verdadeiro burguer em Candeias, Jaboatão</title>
+<meta name="description" content="Chef Burguer Piedade: o verdadeiro burguer desde 2019 em Candeias, Jaboatão dos Guararapes. Salão, retirada e entrega sem contato. Terça a domingo, 18h às 23h59.">
+<!-- PREVIA DE PROPOSTA: noindex de proposito. Esta pagina reproduz um
+     negocio real (Chef Burguer Piedade) e esta hospedada fora do dominio
+     deles. Se o Google indexar, vira site nao-oficial competindo com a
+     presenca real da casa. Ao virar o site oficial no dominio do cliente,
+     trocar por: <meta name="robots" content="index,follow"> -->
+<meta name="robots" content="noindex,nofollow">
+<!-- PENDENTE: apontar a canonical para a URL definitiva do site assim que
+     o dominio/pasta de publicacao existir. Nao apontar para o Instagram:
+     isso sinalizaria que esta pagina e duplicata do perfil.
+<link rel="canonical" href="https://SEU-DOMINIO/"> -->
+
+<meta property="og:type" content="restaurant">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Chef Burguer Piedade">
+<meta property="og:title" content="Chef Burguer Piedade | O verdadeiro burguer desde 2019">
+<meta property="og:description" content="Hambúrguer, ambiente acolhedor e pedido fácil em Candeias, Jaboatão dos Guararapes. 4,6 no Google. Salão, retirada e entrega.">
+<!-- PENDENTE: og:image precisa ser ABSOLUTA ao publicar (https://SEU-DOMINIO/assets/hero-burguer.jpg) -->
+<meta property="og:image" content="assets/hero-burguer.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="465">
+<meta property="og:image:alt" content="Hambúrguer da Chef Burguer Piedade sobre o papel com a marca da casa">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="geo.region" content="BR-PE">
+<meta name="geo.placename" content="Jaboatão dos Guararapes">
+<meta name="theme-color" content="#0C0B09">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   TOKENS
+   Paleta fixada no briefing. Contrastes verificados (WCAG):
+   creme/carvao 16.19 · dourado/carvao 8.93 · ambar/carvao 11.12
+   tijolo/creme 7.43 · ink-2/carvao 7.68 · ticket-ink-2/creme 6.26
+   ATENCAO: dourado sobre creme = 1.81 (REPROVA).
+   Dourado so e usado sobre fundo escuro.
+   ============================================================ */
+:root{
+  --carvao:#0C0B09;
+  --preto-quente:#17130F;
+  --dourado:#D5A84B;
+  --ambar:#F4B942;
+  --creme:#F3E8D2;
+  --tijolo:#793421;
+
+  --ink:var(--creme);
+  --ink-2:#A9A192;
+  --linha:rgba(243,232,210,.14);
+  --linha-forte:rgba(213,168,75,.34);
+
+  --ticket:#F3E8D2;
+  --ticket-ink:#17130F;
+  --ticket-ink-2:#59534A;
+  --ticket-linha:rgba(23,19,15,.20);
+
+  --display:'Barlow Condensed',Impact,'Arial Narrow',sans-serif;
+  --body:'Karla',system-ui,-apple-system,Arial,sans-serif;
+
+  --wrap:min(1180px,100% - 40px);
+  --nav-h:68px;
+  --r:14px;
+  --sombra:0 18px 44px rgba(0,0,0,.5);
+  --t:220ms cubic-bezier(.2,.7,.3,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 18px);-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--carvao);color:var(--ink);
+  font-family:var(--body);font-size:16px;line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+picture{display:contents}
+a{color:inherit}
+button{font:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1.02;letter-spacing:.01em;margin:0}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+
+:focus-visible{outline:3px solid var(--ambar);outline-offset:3px;border-radius:4px}
+
+.wrap{width:var(--wrap);margin-inline:auto}
+/* Itens de grid tem min-width:auto por padrao e se recusam a encolher
+   abaixo do proprio min-content, estourando a trilha. */
+.hero-grid > *,.split > *,.local-grid > *,.tickets > *,.faixa-grid > *,.galeria-grid > *,.aval-grid > *,.foot-grid > *{min-width:0}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+.skip{
+  position:fixed;top:-100px;left:16px;z-index:100;
+  background:var(--ambar);color:var(--carvao);font-weight:700;
+  padding:12px 18px;border-radius:0 0 10px 10px;text-decoration:none;
+  transition:top var(--t);
+}
+.skip:focus{top:0}
+
+/* ---------- Tipografia de secao ---------- */
+.eyebrow{
+  font-family:var(--display);font-weight:700;font-size:14px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--dourado);
+  margin:0 0 14px;
+}
+.h2{font-size:clamp(32px,4.6vw,56px);text-transform:uppercase}
+.lead{font-size:clamp(16px,1.5vw,18px);line-height:1.7;color:var(--ink-2);max-width:56ch}
+
+/* ---------- Botoes ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:48px;padding:0 22px;border-radius:10px;
+  font-family:var(--display);font-weight:700;font-size:17px;
+  letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
+  border:1px solid transparent;cursor:pointer;
+  transition:background var(--t),color var(--t),border-color var(--t),transform var(--t);
+}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-gold{background:var(--dourado);color:var(--carvao);box-shadow:0 10px 26px rgba(213,168,75,.24)}
+.btn-gold:hover{background:var(--ambar);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--creme);border-color:var(--linha-forte)}
+.btn-ghost:hover{border-color:var(--dourado);background:rgba(213,168,75,.10)}
+.btn-sm{min-height:44px;padding:0 16px;font-size:15px}
+.link-inline{
+  display:inline-flex;align-items:center;gap:7px;min-height:44px;
+  color:var(--dourado);font-weight:700;text-decoration:none;
+  border-bottom:1px solid transparent;transition:border-color var(--t),color var(--t);
+}
+.link-inline:hover{color:var(--ambar);border-bottom-color:var(--ambar)}
+.link-inline svg{width:15px;height:15px}
+
+/* ---------- Header ---------- */
+.top{
+  position:sticky;top:0;z-index:40;background:rgba(12,11,9,.94);
+  border-bottom:1px solid var(--linha);backdrop-filter:blur(10px);
+}
+.nav{height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none;min-height:44px}
+/* Brasao oficial da casa, pela URL original do cardapio on-line.
+   alt="" de proposito: o texto "Chef Burguer" ao lado ja nomeia o link. */
+.brand-mark{width:36px;height:36px;border-radius:50%;flex:none;object-fit:contain}
+.brand-txt{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.06em;text-transform:uppercase;line-height:1;white-space:nowrap}
+.brand-txt span{color:var(--dourado)}
+.menu{display:flex;align-items:center;gap:6px}
+.menu a{
+  display:inline-flex;align-items:center;min-height:44px;padding:0 12px;
+  font-weight:600;font-size:15px;color:var(--ink-2);text-decoration:none;border-radius:8px;
+  transition:color var(--t),background var(--t);
+}
+.menu a:hover{color:var(--creme);background:rgba(243,232,210,.06)}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.burger{
+  display:none;width:44px;height:44px;border-radius:9px;
+  background:transparent;border:1px solid var(--linha-forte);color:var(--creme);
+  cursor:pointer;place-items:center;
+}
+.burger svg{width:20px;height:20px}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;isolation:isolate;padding:clamp(52px,7vw,92px) 0 clamp(56px,6vw,84px);overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-2;
+  background:
+    radial-gradient(120% 90% at 78% 12%,rgba(244,185,66,.16) 0%,rgba(244,185,66,.05) 38%,transparent 68%),
+    linear-gradient(180deg,var(--preto-quente) 0%,var(--carvao) 74%);
+}
+/* tijolo apenas como detalhe, bem discreto */
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:-1;opacity:.5;pointer-events:none;
+  background-image:
+    repeating-linear-gradient(0deg,rgba(121,52,33,.16) 0 1px,transparent 1px 26px),
+    repeating-linear-gradient(90deg,rgba(121,52,33,.10) 0 1px,transparent 1px 58px);
+  -webkit-mask-image:radial-gradient(90% 70% at 50% 0%,#000 0%,transparent 72%);
+  mask-image:radial-gradient(90% 70% at 50% 0%,#000 0%,transparent 72%);
+}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(28px,4vw,56px);align-items:center}
+.hero h1{font-size:clamp(44px,6.6vw,86px);text-transform:uppercase;margin:0 0 20px}
+.hero h1 em{font-style:normal;color:var(--dourado);display:block}
+.hero-lead{font-size:clamp(16px,1.6vw,19px);line-height:1.7;color:var(--ink-2);max-width:50ch;margin:0 0 30px}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+
+.hero-facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:32px;padding-top:26px;border-top:1px solid var(--linha)}
+.fact{display:flex;align-items:center;gap:9px;font-size:14.5px;color:var(--ink-2);white-space:nowrap}
+.fact b{font-family:var(--display);font-size:19px;font-weight:700;color:var(--creme);letter-spacing:.02em}
+.fact svg{width:16px;height:16px;color:var(--dourado);flex:none}
+.stars{display:inline-flex;gap:2px;color:var(--ambar)}
+.stars svg{width:14px;height:14px}
+
+/* Painel do hero: placeholder do letreiro neon */
+.hero-panel{position:relative;aspect-ratio:4/5;min-height:340px;border-radius:var(--r);overflow:hidden;border:1px solid var(--linha-forte);box-shadow:var(--sombra)}
+.hero-panel::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(70% 44% at 50% 40%,rgba(244,185,66,.22),transparent 70%),
+    repeating-linear-gradient(0deg,rgba(121,52,33,.42) 0 1px,transparent 1px 30px),
+    repeating-linear-gradient(90deg,rgba(121,52,33,.30) 0 1px,transparent 1px 66px),
+    linear-gradient(180deg,#241a14,#100d0b);
+}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+/* brilho ambar por cima da foto: mantem a atmosfera do letreiro neon
+   sem simular neon em cima da imagem */
+.hero-panel::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(12,11,9,.10) 0%,rgba(12,11,9,.05) 45%,rgba(12,11,9,.62) 100%);
+}
+
+/* Comanda sobreposta no hero */
+.hero-ticket{
+  position:absolute;left:-16px;bottom:22px;width:min(230px,62%);z-index:2;
+  background:var(--ticket);color:var(--ticket-ink);border-radius:4px;
+  padding:14px 16px 18px;box-shadow:0 16px 34px rgba(0,0,0,.6);
+  transform:rotate(-2deg);
+}
+.hero-ticket .t-head{
+  font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--tijolo);
+  padding-bottom:8px;margin-bottom:10px;border-bottom:1px dashed var(--ticket-linha);
+}
+.hero-ticket dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 10px;font-size:13px}
+.hero-ticket dt{color:var(--ticket-ink-2)}
+.hero-ticket dd{margin:0;text-align:right;font-weight:700}
+/* estrela em SVG, para nao usar caractere/emoji como icone */
+.t-star{width:11px;height:11px;display:inline-block;vertical-align:-1px;color:var(--tijolo)}
+
+/* ---------- Faixa de confianca ---------- */
+.faixa{background:var(--preto-quente);border-block:1px solid var(--linha)}
+.faixa-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha)}
+.faixa-item{
+  background:var(--preto-quente);display:flex;align-items:center;gap:13px;
+  padding:26px 22px;min-width:0;
+}
+.faixa-item svg{width:26px;height:26px;color:var(--dourado);flex:none}
+.faixa-item b{display:block;font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.03em;color:var(--creme);line-height:1.15}
+.faixa-item span{display:block;font-size:13px;color:var(--ink-2);margin-top:3px}
+
+/* ---------- Secoes ---------- */
+.sec{padding:clamp(64px,7.5vw,110px) 0}
+.sec-head{max-width:60ch;margin-bottom:clamp(34px,4vw,52px)}
+.sec-head .h2{margin-bottom:14px}
+
+/* ---------- CARDAPIO: comandas no trilho (assinatura) ---------- */
+.cardapio{background:linear-gradient(180deg,var(--carvao),var(--preto-quente) 60%,var(--carvao))}
+.rail-group{margin-bottom:clamp(48px,5vw,64px)}
+.rail-group:last-of-type{margin-bottom:0}
+.rail{
+  position:relative;z-index:1;height:9px;border-radius:99px;margin-bottom:34px;
+  background:linear-gradient(180deg,#8a7f6f 0%,#4b4339 46%,#221d18 100%);
+  box-shadow:inset 0 1px 0 rgba(243,232,210,.42),0 8px 22px rgba(0,0,0,.6);
+}
+.rail::before,.rail::after{
+  content:"";position:absolute;top:-5px;width:19px;height:19px;border-radius:50%;
+  background:linear-gradient(150deg,#8a7f6f,#3a332b);
+  box-shadow:0 3px 8px rgba(0,0,0,.6);
+}
+.rail::before{left:-9px}
+.rail::after{right:-9px}
+.tickets{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:46px 18px}
+
+.ticket{
+  position:relative;background:var(--ticket);color:var(--ticket-ink);
+  border-radius:3px;padding:0 0 22px;
+  box-shadow:0 14px 30px rgba(0,0,0,.5);
+  transform-origin:top center;
+  display:flex;flex-direction:column;
+  transition:transform var(--t),box-shadow var(--t);
+}
+.ticket:nth-child(1){transform:rotate(-1.1deg)}
+.ticket:nth-child(2){transform:rotate(.5deg)}
+.ticket:nth-child(3){transform:rotate(-.6deg)}
+.ticket:nth-child(4){transform:rotate(.8deg)}
+.ticket:hover{transform:rotate(0deg) translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.62)}
+/* clipe que prende a comanda no trilho */
+.ticket::before{
+  content:"";position:absolute;top:-34px;left:50%;margin-left:-7px;
+  width:14px;height:42px;border-radius:4px;z-index:3;
+  background:linear-gradient(180deg,#d8cfbe 0%,#9a917f 40%,#5c5449 100%);
+  box-shadow:0 3px 8px rgba(0,0,0,.55);
+}
+/* borda serrilhada inferior */
+.ticket::after{
+  content:"";position:absolute;left:0;right:0;bottom:-1px;height:11px;
+  background-image:radial-gradient(circle at 8px 11px,var(--carvao) 6px,transparent 6.5px);
+  background-size:16px 11px;background-repeat:repeat-x;
+}
+.t-top{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:12px 16px;border-bottom:1px dashed var(--ticket-linha);flex-wrap:wrap;
+}
+.t-num{font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ticket-ink-2)}
+.t-tags{display:flex;gap:5px;flex-wrap:wrap}
+.t-tag{
+  font-family:var(--display);font-weight:700;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ticket);background:var(--tijolo);border-radius:99px;padding:3px 8px;white-space:nowrap;
+}
+.t-tag.alt{background:var(--preto-quente)}
+
+/* ---------- Cardapio completo (lista de precos real) ---------- */
+.menu-full{margin-top:clamp(52px,5vw,70px)}
+.menu-full h3{
+  font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--dourado);
+  padding-bottom:14px;margin-bottom:8px;border-bottom:1px solid var(--linha-forte);
+}
+.menu-list{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(28px,4vw,60px)}
+.menu-item{
+  display:flex;align-items:baseline;gap:10px;padding:13px 0;
+  border-bottom:1px solid var(--linha);
+}
+.menu-item b{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:.03em;text-transform:uppercase;color:var(--creme);white-space:nowrap}
+.menu-item .dots{flex:1;border-bottom:1px dotted rgba(243,232,210,.28);transform:translateY(-4px)}
+.menu-item span{font-family:var(--display);font-weight:700;font-size:17px;color:var(--dourado);white-space:nowrap}
+.t-img{
+  position:relative;margin:14px 18px 0;aspect-ratio:4/3;border-radius:3px;overflow:hidden;
+  background:#E6D9BF;border:1px solid var(--ticket-linha);
+}
+.t-img img{width:100%;height:100%;object-fit:cover}
+.t-body{padding:16px 18px 0;flex:1;display:flex;flex-direction:column}
+.t-body h3{font-size:22px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:7px;line-height:1.05}
+.t-desc{font-size:13.5px;line-height:1.6;color:var(--ticket-ink-2);margin-bottom:14px;flex:1}
+.t-note{
+  display:flex;align-items:center;gap:6px;font-size:12px;font-weight:700;
+  color:var(--tijolo);margin-bottom:12px;
+}
+.t-note svg{width:13px;height:13px;flex:none}
+.t-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;border-top:1px dashed var(--ticket-linha)}
+.t-price{font-family:var(--display);font-weight:800;font-size:26px;color:var(--ticket-ink);letter-spacing:.02em;line-height:1}
+.t-price small{display:block;font-family:var(--body);font-weight:600;font-size:10.5px;letter-spacing:0;color:var(--ticket-ink-2);text-transform:none;margin-bottom:2px}
+.t-price-old{font-family:var(--body);font-size:13px;font-weight:600;color:var(--ticket-ink-2);text-decoration:line-through;margin-left:6px}
+/* selo de desconto: tijolo sobre creme = 7.43:1, aprovado */
+.t-off{
+  display:inline-block;font-family:var(--display);font-weight:800;font-size:12px;
+  letter-spacing:.06em;color:var(--ticket);background:var(--tijolo);
+  border-radius:4px;padding:3px 7px;margin-left:7px;vertical-align:2px;
+}
+.t-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  min-height:44px;padding:0 14px;border-radius:8px;
+  background:var(--preto-quente);color:var(--creme);
+  font-family:var(--display);font-weight:700;font-size:14.5px;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;transition:background var(--t);
+}
+.t-btn:hover{background:var(--tijolo)}
+.t-btn svg{width:15px;height:15px}
+.cardapio-foot{display:flex;justify-content:center;margin-top:clamp(44px,5vw,60px)}
+
+/* ---------- Historia ---------- */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,4.4vw,64px);align-items:center}
+.ph{
+  position:relative;border-radius:var(--r);border:1px dashed var(--linha-forte);
+  background:
+    repeating-linear-gradient(0deg,rgba(121,52,33,.14) 0 1px,transparent 1px 24px),
+    linear-gradient(160deg,#1d1712,#0f0c0a);
+  display:grid;place-items:center;text-align:center;padding:22px;
+}
+.ph-in{max-width:300px}
+.ph-icon{width:34px;height:34px;color:var(--dourado);margin:0 auto 12px;opacity:.85}
+.ph b{display:block;font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:var(--creme);margin-bottom:7px}
+.ph span{font-size:12.5px;line-height:1.55;color:var(--ink-2)}
+.ph code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;color:var(--dourado);display:block;margin-top:7px}
+.historia-ph{aspect-ratio:5/4}
+.historia p + p{margin-top:16px}
+.historia .lead{margin-bottom:26px}
+
+/* ---------- Galeria ---------- */
+.galeria-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:14px}
+.g-1{grid-column:span 2;grid-row:span 2}
+.g-2{grid-column:span 2}
+.g-3,.g-4{grid-column:span 1}
+.g-5{grid-column:span 2;grid-row:span 1}
+.g-6{grid-column:span 2}
+.galeria .ph{height:100%}
+
+/* ---------- Avaliacoes ---------- */
+.aval{background:var(--preto-quente);border-block:1px solid var(--linha)}
+.aval-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:24px;margin-bottom:clamp(32px,4vw,46px)}
+.score{display:flex;align-items:center;gap:16px;flex:none}
+.score-num{font-family:var(--display);font-weight:800;font-size:62px;line-height:.9;color:var(--dourado)}
+.score-meta span{display:block;font-size:13.5px;color:var(--ink-2);margin-top:5px}
+.aval-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.review{
+  position:relative;background:var(--carvao);border:1px solid var(--linha);
+  border-left:3px solid var(--dourado);border-radius:var(--r);padding:30px;
+}
+.review blockquote{margin:0 0 18px;font-size:17px;line-height:1.68;color:var(--creme)}
+.review figcaption{display:flex;align-items:center;gap:11px}
+.review-av{
+  width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:rgba(213,168,75,.14);border:1px solid var(--linha-forte);
+  font-family:var(--display);font-weight:700;font-size:15px;color:var(--dourado);
+}
+.review-nome{font-weight:700;font-size:15px;color:var(--creme)}
+.review-fonte{font-size:12.5px;color:var(--ink-2)}
+.aval-cta{display:flex;justify-content:center;margin-top:clamp(36px,4vw,48px)}
+
+/* ---------- Localizacao ---------- */
+.local-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:clamp(30px,4vw,56px);align-items:start}
+.info-list{display:grid;gap:2px;margin:30px 0}
+.info-row{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid var(--linha)}
+.info-row:first-child{border-top:1px solid var(--linha)}
+.info-row svg{width:20px;height:20px;color:var(--dourado);flex:none;margin-top:3px}
+.info-row b{display:block;font-family:var(--display);font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:4px}
+.info-row p{font-size:16px;line-height:1.6;color:var(--creme)}
+.info-row a{display:inline-flex;align-items:center;min-height:44px;color:var(--creme);text-decoration:none;border-bottom:1px solid var(--linha-forte)}
+.info-row a:hover{color:var(--ambar);border-bottom-color:var(--ambar)}
+.local-actions{display:flex;flex-wrap:wrap;gap:11px}
+.mapa{
+  position:relative;aspect-ratio:1/1;border-radius:var(--r);overflow:hidden;
+  border:1px solid var(--linha-forte);text-decoration:none;display:block;
+  background:linear-gradient(160deg,#1b1610,#0e0b09);
+  transition:border-color var(--t);
+}
+.mapa:hover{border-color:var(--dourado)}
+.mapa::before{
+  content:"";position:absolute;inset:0;opacity:.6;
+  background-image:
+    repeating-linear-gradient(0deg,rgba(243,232,210,.07) 0 1px,transparent 1px 42px),
+    repeating-linear-gradient(90deg,rgba(243,232,210,.07) 0 1px,transparent 1px 42px);
+}
+.mapa-in{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:26px}
+.mapa-pin{width:44px;height:44px;color:var(--ambar);filter:drop-shadow(0 0 12px rgba(244,185,66,.5))}
+.mapa-txt b{display:block;font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.05em;text-transform:uppercase;color:var(--creme)}
+.mapa-txt span{display:block;font-size:13.5px;color:var(--ink-2);margin-top:5px}
+.mapa-cta{
+  display:inline-flex;align-items:center;gap:7px;margin-top:6px;
+  font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--dourado);
+}
+.mapa-cta svg{width:14px;height:14px}
+
+/* ---------- CTA final ---------- */
+.cta-final{position:relative;isolation:isolate;text-align:center;overflow:hidden}
+.cta-final::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(70% 100% at 50% 100%,rgba(244,185,66,.16),transparent 66%),
+    linear-gradient(180deg,var(--carvao),var(--preto-quente));
+}
+.cta-final .h2{margin-bottom:16px}
+.cta-final .lead{margin:0 auto 32px;text-align:center}
+.cta-final .btn{min-height:56px;padding:0 34px;font-size:19px}
+
+/* ---------- Rodape ---------- */
+.foot{background:var(--preto-quente);border-top:1px solid var(--linha);padding:clamp(48px,5vw,64px) 0 0}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;padding-bottom:44px}
+.foot-brand p{margin:16px 0 20px;font-size:14.5px;line-height:1.7;color:var(--ink-2);max-width:34ch}
+.foot h3{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--dourado);margin-bottom:16px}
+.foot-links li{margin-bottom:2px}
+.foot-links a,.foot-contato a,.foot-contato p{
+  display:inline-flex;align-items:center;gap:8px;min-height:44px;
+  font-size:14.5px;color:var(--ink-2);text-decoration:none;transition:color var(--t);
+}
+.foot-links a,.foot-contato a{min-width:44px}
+.foot-links a:hover,.foot-contato a:hover{color:var(--ambar)}
+.foot-contato svg{width:15px;height:15px;color:var(--dourado);flex:none}
+.foot-social{display:inline-flex;align-items:center;gap:9px;min-height:44px;color:var(--creme);font-weight:700;font-size:14.5px;text-decoration:none}
+.foot-social svg{width:18px;height:18px;color:var(--dourado)}
+.foot-social:hover{color:var(--ambar)}
+.foot-bar{
+  border-top:1px solid var(--linha);padding:22px 0;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;
+  font-size:13px;color:var(--ink-2);
+}
+
+/* ---------- Barra fixa mobile ---------- */
+.bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:45;display:none;
+  gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(12,11,9,.97);border-top:1px solid var(--linha-forte);
+  backdrop-filter:blur(10px);
+}
+.bar .btn{flex:1}
+.bar-call{flex:none !important;width:52px;padding:0}
+
+/* ---------- Movimento ---------- */
+.rv{opacity:0;transform:translateY(12px);transition:opacity 300ms ease-out,transform 300ms cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+.hero-anim{animation:heroIn 460ms cubic-bezier(.2,.7,.3,1) both}
+.hero-anim:nth-child(2){animation-delay:90ms}
+@keyframes heroIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  .rv{opacity:1;transform:none}
+  .ticket:hover{transform:none}
+}
+
+/* ============================================================
+   RESPONSIVO — mobile-first nos ajustes abaixo
+   ============================================================ */
+@media (max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  /* min-height + aspect-ratio geram largura minima automatica e estouram
+     a coluna; a proporcao sozinha ja define a altura. Mais alto que o
+     desktop para a foto e a comanda coexistirem sem colisao. */
+  .hero-panel{aspect-ratio:4/3;min-height:0;max-width:640px}
+  .hero-ticket{left:auto;right:16px;bottom:16px;width:min(210px,52%)}
+  .tickets{grid-template-columns:repeat(2,1fr);gap:46px 22px}
+  .ticket:nth-child(3){transform:rotate(.5deg)}
+  .menu-list{grid-template-columns:repeat(2,1fr)}
+  .faixa-grid{grid-template-columns:repeat(2,1fr)}
+  .local-grid{grid-template-columns:1fr;gap:36px}
+  .mapa{aspect-ratio:16/10}
+  .galeria-grid{grid-auto-rows:165px}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:30px}
+  .foot-brand{grid-column:1 / -1}
+}
+
+@media (max-width:860px){
+  .menu{
+    position:fixed;inset:var(--nav-h) 0 auto;flex-direction:column;align-items:stretch;gap:0;
+    background:var(--preto-quente);border-bottom:1px solid var(--linha-forte);
+    padding:8px 20px 18px;box-shadow:0 22px 40px rgba(0,0,0,.6);
+    display:none;
+  }
+  .menu.open{display:flex}
+  .menu a{min-height:52px;padding:0 6px;font-size:17px;border-bottom:1px solid var(--linha)}
+  .menu a:last-child{border-bottom:0}
+  .burger{display:grid}
+  .nav-cta .btn{display:none}
+  .split{grid-template-columns:1fr;gap:34px}
+  .historia .ph{order:-1}
+  .aval-grid{grid-template-columns:1fr}
+  .galeria-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+  .g-1,.g-2,.g-5,.g-6{grid-column:span 2}
+  .g-1{grid-row:span 1}
+  .bar{display:flex}
+  body{padding-bottom:78px}
+}
+
+@media (max-width:640px){
+  :root{--wrap:min(1180px,100% - 32px)}
+  .tickets{grid-template-columns:1fr;gap:44px 0;max-width:400px;margin-inline:auto}
+  .ticket,.ticket:nth-child(n){transform:none}
+  .menu-list{grid-template-columns:1fr}
+  .rail{display:none}
+  .ticket::before{top:-16px;height:26px}
+  .faixa-grid{grid-template-columns:1fr}
+  .faixa-item{padding:20px 4px}
+  .hero-facts{gap:14px 20px}
+  /* mais alto: da folga para o neon e a comanda coexistirem */
+  .hero-panel{aspect-ratio:3/4}
+  .hero-ticket{width:min(200px,62%);right:12px;bottom:12px}
+  .score{gap:12px}
+  .score-num{font-size:50px}
+  .galeria-grid{grid-template-columns:1fr;grid-auto-rows:200px}
+  .g-1,.g-2,.g-5,.g-6,.g-3,.g-4{grid-column:span 1;grid-row:span 1}
+  .review{padding:24px}
+  .foot-grid{grid-template-columns:1fr}
+  .local-actions .btn{flex:1 1 100%}
+}
+
+@media (max-width:380px){
+  .brand-txt{font-size:17px}
+  .t-foot{flex-direction:column;align-items:stretch;gap:10px}
+  .t-btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Pular para o conteúdo</a>
+
+<!-- ============ HEADER ============ -->
+<header class="top">
+  <nav class="wrap nav" aria-label="Navegação principal">
+    <a class="brand" href="#topo">
+      <picture><source type="image/webp" srcset="assets/logo-chef-burguer.webp"><img class="brand-mark" src="assets/logo-chef-burguer.jpg" alt="" width="96" height="96" decoding="async"></picture>
+      <span class="brand-txt">Chef <span>Burguer</span></span>
+    </a>
+
+    <ul class="menu" id="menu">
+      <li><a href="#topo">Início</a></li>
+      <li><a href="#cardapio">Cardápio</a></li>
+      <li><a href="#avaliacoes">Avaliações</a></li>
+      <li><a href="#localizacao">Localização</a></li>
+    </ul>
+
+    <div class="nav-cta">
+      <a class="btn btn-gold btn-sm" href="https://app.cardapioweb.com/chef_burguer1" target="_blank" rel="noopener" data-cfg="ORDER_URL">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        Pedir agora
+      </a>
+      <button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="topo">
+  <div class="wrap hero-grid">
+    <div class="hero-anim">
+      <p class="eyebrow">Desde 2019 • Candeias</p>
+      <h1>O verdadeiro burguer.<em>Desde 2019.</em></h1>
+      <p class="hero-lead">Hambúrguer, ambiente acolhedor e pedido fácil para aproveitar no salão, retirar ou receber em casa.</p>
+
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="https://app.cardapioweb.com/chef_burguer1" target="_blank" rel="noopener" data-cfg="ORDER_URL">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Pedir agora
+        </a>
+        <a class="btn btn-ghost" href="#cardapio">Ver cardápio</a>
+        <a class="link-inline" href="#localizacao">
+          Como chegar
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-facts">
+        <p class="fact">
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2v15.8L5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          </span>
+          <b>4,6</b> <span>de 5</span>
+        </p>
+        <p class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <b>84</b> <span>avaliações</span>
+        </p>
+        <p class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <b>R$ 20–40</b> <span>por pessoa</span>
+        </p>
+        <p class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <b>Ter–Dom</b> <span>18:00–23:59</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="hero-anim">
+      <div class="hero-panel">
+        <!-- Foto de capa real da casa (hamburguer sobre o papel com a marca),
+             pela URL original do cardapio on-line. -->
+        <picture>
+          <source type="image/webp" srcset="assets/hero-burguer-640.webp 640w, assets/hero-burguer.webp 1280w" sizes="(max-width:1024px) 92vw, 46vw">
+          <img class="hero-img" src="assets/hero-burguer.jpg"
+               srcset="assets/hero-burguer-640.jpg 640w, assets/hero-burguer.jpg 1280w"
+               sizes="(max-width:1024px) 92vw, 46vw"
+               alt="Hambúrguer da Chef Burguer Piedade servido sobre o papel com a marca da casa" width="1280" height="465" fetchpriority="high" decoding="async">
+        </picture>
+
+        <figure class="hero-ticket">
+          <p class="t-head">Chef Burguer · Piedade</p>
+          <dl>
+            <dt>Avaliação</dt><dd>4,6 <svg class="t-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></dd>
+            <dt>Atendimento</dt><dd>Ter–Dom</dd>
+            <dt>Horário</dt><dd>18:00–23:59</dd>
+            <dt>Média</dt><dd>R$ 20–40</dd>
+          </dl>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAIXA DE CONFIANCA ============ -->
+<section class="faixa" aria-label="Informações principais">
+  <div class="wrap">
+    <div class="faixa-grid">
+      <div class="faixa-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+        <span><b>4,6 no Google</b><span>84 avaliações de clientes</span></span>
+      </div>
+      <div class="faixa-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 5 3h14l2 6"/><path d="M4 9h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M4 9a2.5 2.5 0 0 0 4 0 2.5 2.5 0 0 0 4 0 2.5 2.5 0 0 0 4 0 2.5 2.5 0 0 0 4 0"/></svg>
+        <span><b>Desde 2019</b><span>A mesma essência</span></span>
+      </div>
+      <div class="faixa-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 3h13v13H1z"/><path d="M14 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/></svg>
+        <span><b>Salão, retirada e entrega</b><span>Entrega sem contato</span></span>
+      </div>
+      <div class="faixa-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2h8l1 4H7z"/><path d="M5 6h14l-1 15a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1z"/><path d="M9 11h6M9 15h6"/></svg>
+        <span><b>Pedido pelo cardápio on-line</b><span>Rápido e sem ligação</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CARDAPIO — comandas no trilho ============ -->
+<section class="sec cardapio" id="cardapio">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Promoções de hoje</p>
+      <h2 class="h2">Escolha o seu próximo Chef</h2>
+      <p class="lead">As ofertas que estão valendo agora no cardápio on-line. Cada comanda leva direto ao pedido.</p>
+    </div>
+
+    <!-- COMANDAS: as 4 promocoes reais em cartaz no cardapio on-line.
+         Precos, descricoes e imagens coletados de app.cardapioweb.com/chef_burguer1 -->
+    <div class="rail-group rv">
+      <div class="rail" aria-hidden="true"></div>
+      <div class="tickets">
+        <article class="ticket">
+          <div class="t-top">
+            <p class="t-num">Oferta 01</p>
+            <div class="t-tags"><span class="t-tag ">OFERTA</span><span class="t-tag alt">Quarta em dobro</span></div>
+          </div>
+          <div class="t-img">
+            <picture><source type="image/webp" srcset="assets/promo-fabuloso.webp"><img src="assets/promo-fabuloso.jpg" alt="Fabuloso: dois hambúrgueres com cheddar e anel de cebola segurados na mão" width="700" height="700" loading="lazy" decoding="async"></picture>
+          </div>
+          <div class="t-body">
+            <h3>Fabuloso<br><small style="font-family:var(--body);font-size:12px;font-weight:600;text-transform:none;letter-spacing:0;color:var(--tijolo)">Compre 1 e leve outro por 50%</small></h3>
+            <p class="t-desc">Pão, 100g blend bovino, queijo cheddar americano, anel de cebola, molho barbecue e maionese temperada do chef.</p>
+            
+            <div class="t-foot">
+              <p class="t-price"><small>A partir de</small>R$ 32,85<span class="t-price-old">R$ 40,85</span><span class="t-off">-20%</span></p>
+            </div>
+            <div style="margin-top:12px"><a class="t-btn" href="https://app.cardapioweb.com/chef_burguer1" target="_blank" rel="noopener" data-cfg="ORDER_URL"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Pedir agora</a></div>
+          </div>
+        </article>
+        <article class="ticket">
+          <div class="t-top">
+            <p class="t-num">Oferta 02</p>
+            <div class="t-tags"><span class="t-tag ">Promoção do chef</span></div>
+          </div>
+          <div class="t-img">
+            <picture><source type="image/webp" srcset="assets/promo-combo-familia.webp"><img src="assets/promo-combo-familia.jpg" alt="Combo Família: dois hambúrgueres, batatas e Coca-Cola sobre tábua de madeira" width="600" height="600" loading="lazy" decoding="async"></picture>
+          </div>
+          <div class="t-body">
+            <h3>Combo Família</h3>
+            <p class="t-desc">2 Fabulosos + 2 Chefinhos + Coca 1,5 + 2 Batatas médias + 2 Adicionais de maionese do chef.</p>
+            
+            <div class="t-foot">
+              <p class="t-price">R$ 99,99<span class="t-price-old">R$ 133,90</span><span class="t-off">-25%</span></p>
+            </div>
+            <div style="margin-top:12px"><a class="t-btn" href="https://app.cardapioweb.com/chef_burguer1" target="_blank" rel="noopener" data-cfg="ORDER_URL"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Pedir agora</a></div>
+          </div>
+        </article>
+        <article class="ticket">
+          <div class="t-top">
+            <p class="t-num">Oferta 03</p>
+            <div class="t-tags"><span class="t-tag ">OFERTA</span></div>
+          </div>
+          <div class="t-img">
+            <picture><source type="image/webp" srcset="assets/promo-tropical.webp"><img src="assets/promo-tropical.jpg" alt="Tropical: hambúrguer com abacaxi caramelizado e mussarela gratinada" width="900" height="675" loading="lazy" decoding="async"></picture>
+          </div>
+          <div class="t-body">
+            <h3>Tropical</h3>
+            <p class="t-desc">Pão, 100g blend bovino, mussarela gratinada, abacaxi caramelizado, alface americano, tomate e maionese temperada do chef.</p>
+            
+            <div class="t-foot">
+              <p class="t-price">R$ 18,90<span class="t-price-old">R$ 22,90</span><span class="t-off">-17%</span></p>
+            </div>
+            <div style="margin-top:12px"><a class="t-btn" href="https://app.cardapioweb.com/chef_burguer1" target="_blank" rel="noopener" data-cfg="ORDER_URL"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Pedir agora</a></div>
+          </div>
+        </article>
+        <article class="ticket">
+          <div class="t-top">
+            <p class="t-num">Oferta 04</p>
+            <div class="t-tags"><span class="t-tag ">Novidade</span></div>
+          </div>
+          <div class="t-img">
+            <picture><source type="image/webp" srcset="assets/promo-suco-laranja.webp"><img src="assets/promo-suco-laranja.jpg" alt="Suco de laranja Chef Burguer de 300ml ao lado de laranjas" width="700" height="700" loading="lazy" decoding="async"></picture>
+          </div>
+          <div class="t-body">
+            <h3>Suco de laranja 300ml</h3>
+            <p class="t-desc">Suco de laranja da fruta.</p>
+            <p class="t-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 3h13v13H1z"/><path d="M14 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/></svg>Apenas para delivery e retirada</p>
+            <div class="t-foot">
+              <p class="t-price">R$ 8,90<span class="t-price-old">R$ 15,00</span><span class="t-off">-41%</span></p>
+            </div>
+            <div style="margin-top:12px"><a class="t-btn" href="https://app.cardapioweb.com/chef_burguer1" target="_blank" rel="noopener" data-cfg="ORDER_URL"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Pedir agora</a></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- CARDAPIO COMPLETO: lista real de burguers da secao "BURGUER DO CHEF" -->
+    <div class="menu-full rv">
+      <h3>Burguer do Chef · cardápio completo</h3>
+      <ul class="menu-list">
+        <li class="menu-item"><b>Chefinho</b><i class="dots"></i><span>R$ 20,99</span></li>
+        <li class="menu-item"><b>Cheddar</b><i class="dots"></i><span>R$ 21,90</span></li>
+        <li class="menu-item"><b>Fabuloso</b><i class="dots"></i><span>R$ 21,90</span></li>
+        <li class="menu-item"><b>Chefinho Egg</b><i class="dots"></i><span>R$ 21,90</span></li>
+        <li class="menu-item"><b>Tropical</b><i class="dots"></i><span>R$ 22,90</span></li>
+        <li class="menu-item"><b>Matuto</b><i class="dots"></i><span>R$ 22,90</span></li>
+        <li class="menu-item"><b>Sertanejo</b><i class="dots"></i><span>R$ 25,90</span></li>
+        <li class="menu-item"><b>Cheddar Bacon</b><i class="dots"></i><span>R$ 26,90</span></li>
+        <li class="menu-item"><b>Chef Cebolinha</b><i class="dots"></i><span>R$ 26,90</span></li>
+        <li class="menu-item"><b>Chef Bacon</b><i class="dots"></i><span>R$ 27,90</span></li>
+        <li class="menu-item"><b>Big Cheddar Bacon</b><i class="dots"></i><span>R$ 29,90</span></li>
+        <li class="menu-item"><b>Crispy</b><i class="dots"></i><span>R$ 29,90</span></li>
+        <li class="menu-item"><b>Big · 200g</b><i class="dots"></i><span>R$ 29,90</span></li>
+        <li class="menu-item"><b>Chicken</b><i class="dots"></i><span>R$ 29,90</span></li>
+        <li class="menu-item"><b>Monstro · 300g</b><i class="dots"></i><span>R$ 36,90</span></li>
+        <li class="menu-item"><b>Supremo</b><i class="dots"></i><span>R$ 49,90</span></li>
+      </ul>
+    </div>
+
+    <div class="cardapio-foot rv">
+      <a class="btn btn-gold" href="https://app.cardapioweb.com/chef_burguer1" target="_blank" rel="noopener" data-cfg="ORDER_URL">
+        Ver cardápio completo
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HISTORIA ============ -->
+<section class="sec historia">
+  <div class="wrap split">
+    <div class="rv">
+      <p class="eyebrow">Nossa história</p>
+      <h2 class="h2">Da essência do trailer para a casa da Chef Burguer</h2>
+      <p class="lead">A Chef Burguer atende em Candeias desde 2019.</p>
+      <p style="color:var(--ink-2);line-height:1.7">A casa cresceu e ganhou salão, mas quem acompanha desde o começo reconhece: a essência continua a mesma. É o que os próprios clientes contam nas avaliações.</p>
+      <p style="margin-top:26px">
+        <a class="link-inline" href="#avaliacoes">
+          Ler o que os clientes dizem
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </p>
+    </div>
+    <div class="ph historia-ph rv">
+      <div class="ph-in">
+        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V8l9-5 9 5v13"/><path d="M3 12h18M3 16h18M8 8v13M16 8v13"/></svg>
+        <b>Foto do ambiente</b>
+        <span>O letreiro neon "Chef Burguer" com o salão ao fundo — já publicado no feed.</span>
+        <code>assets/ambiente-salao.webp</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALERIA ============ -->
+<section class="sec galeria" style="background:var(--preto-quente);border-block:1px solid var(--linha)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Galeria</p>
+      <h2 class="h2">A casa por dentro</h2>
+      <p class="lead">Espaços reservados para fotos reais da Chef Burguer. Nenhuma imagem de banco será usada.</p>
+    </div>
+    <div class="galeria-grid rv">
+      <div class="ph g-1">
+        <div class="ph-in">
+          <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 5 3h14l2 6"/><path d="M4 9h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M4 9a2.5 2.5 0 0 0 4 0 2.5 2.5 0 0 0 4 0 2.5 2.5 0 0 0 4 0 2.5 2.5 0 0 0 4 0"/></svg>
+          <b>Hambúrgueres</b><span>Foto principal dos lanches</span><code>assets/galeria-burgueres.webp</code>
+        </div>
+      </div>
+      <div class="ph g-2">
+        <div class="ph-in"><b>Ambiente</b><span>Salão e parede de tijolos</span><code>assets/galeria-ambiente.webp</code></div>
+      </div>
+      <div class="ph g-3">
+        <div class="ph-in"><b>Batatas</b><span>Acompanhamentos</span><code>assets/galeria-batatas.webp</code></div>
+      </div>
+      <div class="ph g-4">
+        <div class="ph-in"><b>Bastidores</b><span>Chapa e preparo</span><code>assets/galeria-bastidores.webp</code></div>
+      </div>
+      <div class="ph g-5">
+        <div class="ph-in"><b>Equipe</b><span>Quem faz acontecer</span><code>assets/galeria-equipe.webp</code></div>
+      </div>
+      <div class="ph g-6">
+        <div class="ph-in"><b>Produtos da marca</b><span>Embalagens e identidade</span><code>assets/galeria-marca.webp</code></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AVALIACOES ============ -->
+<section class="sec aval" id="avaliacoes">
+  <div class="wrap">
+    <div class="aval-head rv">
+      <div>
+        <p class="eyebrow">Avaliações</p>
+        <h2 class="h2">Quem prova, conta</h2>
+      </div>
+      <div class="score">
+        <p class="score-num">4,6</p>
+        <div class="score-meta">
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2v15.8L5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+          </span>
+          <span>4,6 de 5 — 84 avaliações</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="aval-grid">
+      <!-- Sem estrelas por avaliacao: a nota individual de cada cliente nao foi
+           informada. Apenas a media real (4,6 de 84) e exibida, no cabecalho. -->
+      <figure class="review rv">
+        <blockquote>“Entregaram super rápido o meu pedido e as alterações solicitadas foram atendidas perfeitamente. O sabor era bastante bom.”</blockquote>
+        <figcaption>
+          <span class="review-av" aria-hidden="true">NR</span>
+          <span>
+            <span class="review-nome">Nathalia Rocha</span>
+            <span class="review-fonte">Avaliação no Google</span>
+          </span>
+        </figcaption>
+      </figure>
+
+      <figure class="review rv">
+        <blockquote>“Conheço desde quando atendiam em um trailer. Embora tenham crescido, a essência continua a mesma.”</blockquote>
+        <figcaption>
+          <span class="review-av" aria-hidden="true">LV</span>
+          <span>
+            <span class="review-nome">Lee Charles Vargas</span>
+            <span class="review-fonte">Avaliação no Google</span>
+          </span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="aval-cta rv">
+      <a class="btn btn-gold" href="https://app.cardapioweb.com/chef_burguer1" target="_blank" rel="noopener" data-cfg="ORDER_URL">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        Pedir agora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCALIZACAO ============ -->
+<section class="sec" id="localizacao">
+  <div class="wrap local-grid">
+    <div class="rv">
+      <p class="eyebrow">Localização e contato</p>
+      <h2 class="h2">Onde a Chef te espera</h2>
+
+      <div class="info-list">
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <b>Endereço</b>
+            <p>R. do Jangadeiro, 1668 — Candeias<br>Jaboatão dos Guararapes — PE, 54440-160</p>
+          </div>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <div>
+            <b>Horário</b>
+            <p>Terça a domingo, 18:00 às 23:59</p>
+          </div>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.4 1.9.6 2.9.8a2 2 0 0 1 1.7 2z"/></svg>
+          <div>
+            <b>Telefone</b>
+            <p><a href="tel:+5581994034787" data-cfg="PHONE_TEL" data-cfg-attr="href">(81) 99403-4787</a></p>
+          </div>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <div>
+            <b>Serviços</b>
+            <p>Refeição no local, retirada e entrega sem contato</p>
+          </div>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 3h13v13H1z"/><path d="M14 8h4l3 3v5h-7z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/></svg>
+          <div>
+            <b>Delivery</b>
+            <p>Pelo site, iFood e 99Food</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="local-actions">
+        <a class="btn btn-gold" href="https://app.cardapioweb.com/chef_burguer1" target="_blank" rel="noopener" data-cfg="ORDER_URL">Pedir agora</a>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&destination=R.%20do%20Jangadeiro%2C%201668%2C%20Candeias%2C%20Jaboat%C3%A3o%20dos%20Guararapes%20-%20PE%2C%2054440-160" target="_blank" rel="noopener" data-cfg="MAPS_URL" data-cfg-attr="href">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 19-9-9 19-2-8z"/></svg>
+          Traçar rota
+        </a>
+        <a class="btn btn-ghost" href="tel:+5581994034787" data-cfg="PHONE_TEL" data-cfg-attr="href">Ligar</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/chefburguerpiedade/" target="_blank" rel="noopener" data-cfg="INSTAGRAM" data-cfg-attr="href">Ver Instagram</a>
+      </div>
+    </div>
+
+    <a class="mapa rv" href="https://www.google.com/maps/dir/?api=1&destination=R.%20do%20Jangadeiro%2C%201668%2C%20Candeias%2C%20Jaboat%C3%A3o%20dos%20Guararapes%20-%20PE%2C%2054440-160" target="_blank" rel="noopener" data-cfg="MAPS_URL" data-cfg-attr="href">
+      <span class="mapa-in">
+        <svg class="mapa-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="mapa-txt">
+          <b>Candeias, Jaboatão</b>
+          <span>R. do Jangadeiro, 1668</span>
+        </span>
+        <span class="mapa-cta">
+          Abrir no Google Maps
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section class="sec cta-final">
+  <div class="wrap rv">
+    <p class="eyebrow" style="color:var(--ambar)">Chef Burguer Piedade</p>
+    <h2 class="h2">A fome bateu? A Chef resolve.</h2>
+    <p class="lead">Escolha seu pedido e acompanhe pelo cardápio on-line.</p>
+    <a class="btn btn-gold" href="https://app.cardapioweb.com/chef_burguer1" target="_blank" rel="noopener" data-cfg="ORDER_URL">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      Fazer meu pedido
+    </a>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ RODAPE ============ -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="#topo">
+          <picture><source type="image/webp" srcset="assets/logo-chef-burguer.webp"><img class="brand-mark" src="assets/logo-chef-burguer.jpg" alt="" width="96" height="96" decoding="async"></picture>
+          <span class="brand-txt">Chef <span>Burguer</span></span>
+        </a>
+        <p>O verdadeiro burguer, em Candeias desde 2019. Salão, retirada e entrega sem contato.</p>
+        <a class="foot-social" href="https://www.instagram.com/chefburguerpiedade/" target="_blank" rel="noopener" data-cfg="INSTAGRAM" data-cfg-attr="href">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          @chefburguerpiedade
+        </a>
+      </div>
+
+      <nav class="foot-nav" aria-label="Navegação do rodapé">
+        <h3>Navegação</h3>
+        <ul class="foot-links">
+          <li><a href="#topo">Início</a></li>
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#avaliacoes">Avaliações</a></li>
+          <li><a href="#localizacao">Localização</a></li>
+        </ul>
+      </nav>
+
+      <div class="foot-contato">
+        <h3>Contato</h3>
+        <ul>
+          <li>
+            <a href="tel:+5581994034787" data-cfg="PHONE_TEL" data-cfg-attr="href">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.4 1.9.6 2.9.8a2 2 0 0 1 1.7 2z"/></svg>
+              (81) 99403-4787
+            </a>
+          </li>
+          <li>
+            <p>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              R. do Jangadeiro, 1668 — Candeias
+            </p>
+          </li>
+          <li>
+            <p>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              Terça a domingo, 18:00–23:59
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bar">
+      <p>© <span id="ano">2026</span> Chef Burguer Piedade. Todos os direitos reservados.</p>
+      <p>R. do Jangadeiro, 1668 — Jaboatão dos Guararapes/PE</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ BARRA FIXA MOBILE ============ -->
+<div class="bar" aria-label="Ações rápidas">
+  <a class="btn btn-gold" href="https://app.cardapioweb.com/chef_burguer1" target="_blank" rel="noopener" data-cfg="ORDER_URL">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    Pedir agora
+  </a>
+  <a class="btn btn-ghost bar-call" href="tel:+5581994034787" aria-label="Ligar para a Chef Burguer Piedade" data-cfg="PHONE_TEL" data-cfg-attr="href">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.4 1.9.6 2.9.8a2 2 0 0 1 1.7 2z"/></svg>
+  </a>
+</div>
+
+<script>
+/* ============================================================
+   CONFIGURACAO — fonte unica de verdade.
+   Para mudar qualquer contato ou link, edite APENAS este objeto.
+   ============================================================ */
+const CONFIG = {
+  /* Link do cardapio on-line, retirado da bio do @chefburguerpiedade
+     ("Pede aqui!"). A bio traz o sufixo ?s=insta, que aparenta ser
+     marcacao de origem do Instagram: removido aqui para nao contaminar
+     a atribuicao do trafego vindo do site. Confirmar com a casa se o
+     cardapioweb aceita outro valor de origem (ex.: ?s=site). */
+  ORDER_URL: 'https://app.cardapioweb.com/chef_burguer1',
+
+  PHONE_DISPLAY: '(81) 99403-4787',
+  PHONE_TEL:     'tel:+5581994034787',
+  INSTAGRAM:     'https://www.instagram.com/chefburguerpiedade/',
+
+  /* Endereco CONFIRMADO: o rodape do proprio cardapio on-line traz
+     "R. do Jangadeiro, 1668, Candeias, Jaboatao dos Guararapes/PE",
+     batendo com o Google Maps. O CEP 54430-315 da bio do Instagram e o
+     ponto fora da curva — vale corrigir a bio. CNPJ: 36.229.073/0001-05 */
+  ADDRESS:       'R. do Jangadeiro, 1668 — Candeias, Jaboatão dos Guararapes — PE, 54440-160',
+  MAPS_URL:      'https://www.google.com/maps/dir/?api=1&destination=' +
+                 encodeURIComponent('R. do Jangadeiro, 1668, Candeias, Jaboatão dos Guararapes - PE, 54440-160'),
+
+  /* Horario CONFIRMADO pelo cliente em 17/07/2026: abre as 18:00.
+     Observacao operacional: o cardapio on-line (app.cardapioweb.com) ainda
+     esta configurado para abrir 17:30. Vale alinhar o sistema de pedidos
+     com o site, senao o cliente ve 18:00 aqui e consegue pedir 17:30 la. */
+  HOURS:         'Terça a domingo, 18:00–23:59'
+};
+
+/* Hidrata os elementos a partir do CONFIG.
+   O HTML ja traz um valor padrao equivalente, entao a pagina
+   continua funcionando mesmo se o JS nao rodar. */
+document.querySelectorAll('[data-cfg]').forEach(el => {
+  const valor = CONFIG[el.dataset.cfg];
+  if (!valor) return;
+  el.setAttribute(el.dataset.cfgAttr || 'href', valor);
+  if (el.dataset.cfg === 'ORDER_URL' && valor.charAt(0) !== '#') {
+    el.target = '_blank';
+    el.rel = 'noopener';
+  }
+});
+
+/* Ano do rodape */
+document.getElementById('ano').textContent = new Date().getFullYear();
+
+/* Menu mobile */
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+burger.addEventListener('click', () => {
+  const aberto = menu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', String(aberto));
+  burger.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
+});
+menu.addEventListener('click', e => {
+  if (e.target.tagName !== 'A') return;
+  menu.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+  burger.setAttribute('aria-label', 'Abrir menu');
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && menu.classList.contains('open')) {
+    menu.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.focus();
+  }
+});
+
+/* Revelacao das secoes — respeita prefers-reduced-motion */
+const semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const alvos = document.querySelectorAll('.rv');
+if (semMovimento || !('IntersectionObserver' in window)) {
+  alvos.forEach(el => el.classList.add('in'));
+} else {
+  const obs = new IntersectionObserver((entradas) => {
+    entradas.forEach(entrada => {
+      if (!entrada.isIntersecting) return;
+      entrada.target.classList.add('in');
+      obs.unobserve(entrada.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  alvos.forEach(el => obs.observe(el));
+}
+</script>
+
+<!-- ============ JSON-LD ============ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Chef Burguer Piedade",
+  "slogan": "O verdadeiro burguer",
+  "description": "Hamburgueria em Candeias, Jaboatão dos Guararapes, desde 2019. Refeição no local, retirada e entrega sem contato.",
+  "foundingDate": "2019",
+  "servesCuisine": "Hambúrguer",
+  "priceRange": "R$ 20–40",
+  "telephone": "+55-81-99403-4787",
+  "image": "assets/hero-burguer.jpg",
+  "logo": "assets/logo-chef-burguer.jpg",
+  "taxID": "36.229.073/0001-05",
+  "sameAs": ["https://www.instagram.com/chefburguerpiedade/"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "R. do Jangadeiro, 1668",
+    "addressLocality": "Jaboatão dos Guararapes",
+    "addressRegion": "PE",
+    "postalCode": "54440-160",
+    "addressCountry": "BR"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "18:00",
+    "closes": "23:59"
+  }],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "reviewCount": "84",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Nathalia Rocha" },
+      "reviewBody": "Entregaram super rápido o meu pedido e as alterações solicitadas foram atendidas perfeitamente. O sabor era bastante bom."
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Lee Charles Vargas" },
+      "reviewBody": "Conheço desde quando atendiam em um trailer. Embora tenham crescido, a essência continua a mesma."
+    }
+  ],
+  "hasMenu": "https://app.cardapioweb.com/chef_burguer1",
+  "acceptsReservations": "False"
+}
+</script>
+
+</body>
+</html>
