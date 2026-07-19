@@ -367,13 +367,24 @@ ul{margin:0;padding:0;list-style:none}
 .historia p + p{margin-top:16px}
 .historia .lead{margin-bottom:26px}
 
+/* moldura de midia real (video do salao) */
+.media-frame{position:relative;border-radius:var(--r);overflow:hidden;border:1px solid var(--linha-forte);box-shadow:var(--sombra)}
+.historia-media{aspect-ratio:1/1}
+.historia-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.media-frame::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(12,11,9,.06) 0%,transparent 34%,rgba(12,11,9,.55) 100%)}
+.media-cap{position:absolute;left:16px;bottom:14px;z-index:2;display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--creme)}
+.media-cap svg{width:15px;height:15px;color:var(--ambar);flex:none}
+
 /* ---------- Galeria ---------- */
 .galeria-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:14px}
+.g-tile{position:relative;margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--linha)}
+.g-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform var(--t)}
+.g-tile:hover img{transform:scale(1.04)}
+.g-tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--creme);background:linear-gradient(180deg,transparent,rgba(12,11,9,.86))}
 .g-1{grid-column:span 2;grid-row:span 2}
 .g-2{grid-column:span 2}
 .g-3,.g-4{grid-column:span 1}
-.g-5{grid-column:span 2;grid-row:span 1}
-.g-6{grid-column:span 2}
+.g-5{grid-column:span 4}
 .galeria .ph{height:100%}
 
 /* ---------- Avaliacoes ---------- */
@@ -524,10 +535,11 @@ ul{margin:0;padding:0;list-style:none}
   .burger{display:grid}
   .nav-cta .btn{display:none}
   .split{grid-template-columns:1fr;gap:34px}
-  .historia .ph{order:-1}
+  .historia .media-frame{order:-1}
+  .historia-media{aspect-ratio:16/10;max-width:560px}
   .aval-grid{grid-template-columns:1fr}
   .galeria-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
-  .g-1,.g-2,.g-5,.g-6{grid-column:span 2}
+  .g-1,.g-2,.g-5{grid-column:span 2}
   .g-1{grid-row:span 1}
   .bar{display:flex}
   body{padding-bottom:78px}
@@ -549,7 +561,7 @@ ul{margin:0;padding:0;list-style:none}
   .score{gap:12px}
   .score-num{font-size:50px}
   .galeria-grid{grid-template-columns:1fr;grid-auto-rows:200px}
-  .g-1,.g-2,.g-5,.g-6,.g-3,.g-4{grid-column:span 1;grid-row:span 1}
+  .g-1,.g-2,.g-5,.g-3,.g-4{grid-column:span 1;grid-row:span 1}
   .review{padding:24px}
   .foot-grid{grid-template-columns:1fr}
   .local-actions .btn{flex:1 1 100%}
@@ -828,13 +840,15 @@ ul{margin:0;padding:0;list-style:none}
         </a>
       </p>
     </div>
-    <div class="ph historia-ph rv">
-      <div class="ph-in">
-        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21V8l9-5 9 5v13"/><path d="M3 12h18M3 16h18M8 8v13M16 8v13"/></svg>
-        <b>Foto do ambiente</b>
-        <span>O letreiro neon "Chef Burguer" com o salão ao fundo — já publicado no feed.</span>
-        <code>assets/ambiente-salao.webp</code>
-      </div>
+    <div class="media-frame historia-media rv">
+      <video autoplay muted loop playsinline preload="metadata"
+             poster="assets/ambiente-poster.jpg" aria-label="Vídeo do salão da Chef Burguer Piedade em Candeias">
+        <source src="assets/local-chefburguer.mp4" type="video/mp4">
+      </video>
+      <p class="media-cap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Nosso salão em Candeias
+      </p>
     </div>
   </div>
 </section>
@@ -845,30 +859,29 @@ ul{margin:0;padding:0;list-style:none}
     <div class="sec-head rv">
       <p class="eyebrow">Galeria</p>
       <h2 class="h2">A casa por dentro</h2>
-      <p class="lead">Espaços reservados para fotos reais da Chef Burguer. Nenhuma imagem de banco será usada.</p>
+      <p class="lead">Os lanches que saem da chapa da Chef Burguer, nas fotos reais do cardápio.</p>
     </div>
     <div class="galeria-grid rv">
-      <div class="ph g-1">
-        <div class="ph-in">
-          <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9 5 3h14l2 6"/><path d="M4 9h16v11a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M4 9a2.5 2.5 0 0 0 4 0 2.5 2.5 0 0 0 4 0 2.5 2.5 0 0 0 4 0 2.5 2.5 0 0 0 4 0"/></svg>
-          <b>Hambúrgueres</b><span>Foto principal dos lanches</span><code>assets/galeria-burgueres.webp</code>
-        </div>
-      </div>
-      <div class="ph g-2">
-        <div class="ph-in"><b>Ambiente</b><span>Salão e parede de tijolos</span><code>assets/galeria-ambiente.webp</code></div>
-      </div>
-      <div class="ph g-3">
-        <div class="ph-in"><b>Batatas</b><span>Acompanhamentos</span><code>assets/galeria-batatas.webp</code></div>
-      </div>
-      <div class="ph g-4">
-        <div class="ph-in"><b>Bastidores</b><span>Chapa e preparo</span><code>assets/galeria-bastidores.webp</code></div>
-      </div>
-      <div class="ph g-5">
-        <div class="ph-in"><b>Equipe</b><span>Quem faz acontecer</span><code>assets/galeria-equipe.webp</code></div>
-      </div>
-      <div class="ph g-6">
-        <div class="ph-in"><b>Produtos da marca</b><span>Embalagens e identidade</span><code>assets/galeria-marca.webp</code></div>
-      </div>
+      <figure class="g-tile g-1">
+        <picture><source type="image/webp" srcset="assets/promo-tropical.webp"><img src="assets/promo-tropical.jpg" alt="Hambúrguer Tropical com abacaxi caramelizado e mussarela gratinada" width="900" height="675" loading="lazy" decoding="async"></picture>
+        <figcaption>Tropical</figcaption>
+      </figure>
+      <figure class="g-tile g-2">
+        <picture><source type="image/webp" srcset="assets/promo-fabuloso.webp"><img src="assets/promo-fabuloso.jpg" alt="Hambúrguer Fabuloso com cheddar americano e anel de cebola" width="700" height="700" loading="lazy" decoding="async"></picture>
+        <figcaption>Fabuloso</figcaption>
+      </figure>
+      <figure class="g-tile g-3">
+        <picture><source type="image/webp" srcset="assets/promo-combo-familia.webp"><img src="assets/promo-combo-familia.jpg" alt="Combo Família com hambúrgueres, batatas e refrigerante" width="600" height="600" loading="lazy" decoding="async"></picture>
+        <figcaption>Combo Família</figcaption>
+      </figure>
+      <figure class="g-tile g-4">
+        <picture><source type="image/webp" srcset="assets/promo-suco-laranja.webp"><img src="assets/promo-suco-laranja.jpg" alt="Suco de laranja natural da Chef Burguer, 300ml" width="700" height="700" loading="lazy" decoding="async"></picture>
+        <figcaption>Suco de laranja</figcaption>
+      </figure>
+      <figure class="g-tile g-5">
+        <picture><source type="image/webp" srcset="assets/hero-burguer.webp"><img src="assets/hero-burguer.jpg" alt="Hambúrguer da Chef Burguer servido sobre o papel com a marca da casa" width="1280" height="465" loading="lazy" decoding="async"></picture>
+        <figcaption>O verdadeiro burguer, na embalagem da casa</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -1159,6 +1172,15 @@ document.addEventListener('keydown', e => {
 
 /* Revelacao das secoes — respeita prefers-reduced-motion */
 const semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Video do salao: se o usuario prefere menos movimento, nao reproduz —
+   fica no poster (quadro do proprio salao). */
+if (semMovimento) {
+  document.querySelectorAll('video[autoplay]').forEach(v => {
+    v.removeAttribute('autoplay'); v.pause();
+  });
+}
+
 const alvos = document.querySelectorAll('.rv');
 if (semMovimento || !('IntersectionObserver' in window)) {
   alvos.forEach(el => el.classList.add('in'));
