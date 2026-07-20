@@ -32,6 +32,7 @@
 <meta name="geo.placename" content="Jaboatão dos Guararapes">
 <meta name="theme-color" content="#0C0B09">
 
+<link rel="preload" as="image" href="assets/hero-poster.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -93,7 +94,7 @@ ul{margin:0;padding:0;list-style:none}
 .wrap{width:var(--wrap);margin-inline:auto}
 /* Itens de grid tem min-width:auto por padrao e se recusam a encolher
    abaixo do proprio min-content, estourando a trilha. */
-.hero-grid > *,.split > *,.local-grid > *,.tickets > *,.faixa-grid > *,.galeria-grid > *,.aval-grid > *,.foot-grid > *{min-width:0}
+.split > *,.local-grid > *,.tickets > *,.faixa-grid > *,.galeria-grid > *,.aval-grid > *,.foot-grid > *{min-width:0}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
 .skip{
@@ -163,71 +164,39 @@ ul{margin:0;padding:0;list-style:none}
 }
 .burger svg{width:20px;height:20px}
 
-/* ---------- Hero ---------- */
-.hero{position:relative;isolation:isolate;padding:clamp(52px,7vw,92px) 0 clamp(56px,6vw,84px);overflow:hidden}
+/* ---------- Hero: video em tela cheia ---------- */
+.hero{
+  position:relative;isolation:isolate;overflow:hidden;
+  min-height:calc(100svh - var(--nav-h));
+  display:flex;align-items:center;
+  padding:clamp(56px,8vw,110px) 0;
+  background:#170D0D;
+}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+/* Escurece o lado do texto e deixa o hamburguer respirar a direita.
+   Sobre a faixa esquerda (~.90 de carvao) o creme fica acima de 12:1. */
 .hero::before{
-  content:"";position:absolute;inset:0;z-index:-2;
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:
-    radial-gradient(120% 90% at 78% 12%,rgba(244,185,66,.16) 0%,rgba(244,185,66,.05) 38%,transparent 68%),
-    linear-gradient(180deg,var(--preto-quente) 0%,var(--carvao) 74%);
+    linear-gradient(90deg,rgba(12,11,9,.95) 0%,rgba(12,11,9,.88) 34%,rgba(12,11,9,.58) 57%,rgba(12,11,9,.26) 76%,rgba(12,11,9,.52) 100%),
+    linear-gradient(180deg,rgba(12,11,9,.60) 0%,transparent 22%,transparent 58%,rgba(12,11,9,.78) 100%);
 }
-/* tijolo apenas como detalhe, bem discreto */
-.hero::after{
-  content:"";position:absolute;inset:0;z-index:-1;opacity:.5;pointer-events:none;
-  background-image:
-    repeating-linear-gradient(0deg,rgba(121,52,33,.16) 0 1px,transparent 1px 26px),
-    repeating-linear-gradient(90deg,rgba(121,52,33,.10) 0 1px,transparent 1px 58px);
-  -webkit-mask-image:radial-gradient(90% 70% at 50% 0%,#000 0%,transparent 72%);
-  mask-image:radial-gradient(90% 70% at 50% 0%,#000 0%,transparent 72%);
-}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(28px,4vw,56px);align-items:center}
-.hero h1{font-size:clamp(44px,6.6vw,86px);text-transform:uppercase;margin:0 0 20px}
+.hero-inner{max-width:64ch}
+.hero-inner > *{animation:heroIn 460ms cubic-bezier(.2,.7,.3,1) both}
+.hero-inner > *:nth-child(2){animation-delay:70ms}
+.hero-inner > *:nth-child(3){animation-delay:140ms}
+.hero-inner > *:nth-child(4){animation-delay:210ms}
+.hero h1{font-size:clamp(44px,6.6vw,86px);text-transform:uppercase;margin:0 0 20px;text-shadow:0 2px 20px rgba(0,0,0,.55)}
 .hero h1 em{font-style:normal;color:var(--dourado);display:block}
-.hero-lead{font-size:clamp(16px,1.6vw,19px);line-height:1.7;color:var(--ink-2);max-width:50ch;margin:0 0 30px}
+.hero-lead{font-size:clamp(16px,1.6vw,19px);line-height:1.7;color:#D9D3C7;max-width:46ch;margin:0 0 30px;text-shadow:0 1px 12px rgba(0,0,0,.6)}
 .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
 
-.hero-facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:32px;padding-top:26px;border-top:1px solid var(--linha)}
-.fact{display:flex;align-items:center;gap:9px;font-size:14.5px;color:var(--ink-2);white-space:nowrap}
+.hero-facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:34px;padding-top:26px;border-top:1px solid rgba(243,232,210,.22)}
+.fact{display:flex;align-items:center;gap:9px;font-size:14.5px;color:#C4BDAF;white-space:nowrap}
 .fact b{font-family:var(--display);font-size:19px;font-weight:700;color:var(--creme);letter-spacing:.02em}
 .fact svg{width:16px;height:16px;color:var(--dourado);flex:none}
 .stars{display:inline-flex;gap:2px;color:var(--ambar)}
 .stars svg{width:14px;height:14px}
-
-/* Painel do hero: placeholder do letreiro neon */
-.hero-panel{position:relative;aspect-ratio:4/5;min-height:340px;border-radius:var(--r);overflow:hidden;border:1px solid var(--linha-forte);box-shadow:var(--sombra)}
-.hero-panel::before{
-  content:"";position:absolute;inset:0;
-  background:
-    radial-gradient(70% 44% at 50% 40%,rgba(244,185,66,.22),transparent 70%),
-    repeating-linear-gradient(0deg,rgba(121,52,33,.42) 0 1px,transparent 1px 30px),
-    repeating-linear-gradient(90deg,rgba(121,52,33,.30) 0 1px,transparent 1px 66px),
-    linear-gradient(180deg,#241a14,#100d0b);
-}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-/* brilho ambar por cima da foto: mantem a atmosfera do letreiro neon
-   sem simular neon em cima da imagem */
-.hero-panel::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(12,11,9,.10) 0%,rgba(12,11,9,.05) 45%,rgba(12,11,9,.62) 100%);
-}
-
-/* Comanda sobreposta no hero */
-.hero-ticket{
-  position:absolute;left:-16px;bottom:22px;width:min(230px,62%);z-index:2;
-  background:var(--ticket);color:var(--ticket-ink);border-radius:4px;
-  padding:14px 16px 18px;box-shadow:0 16px 34px rgba(0,0,0,.6);
-  transform:rotate(-2deg);
-}
-.hero-ticket .t-head{
-  font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--tijolo);
-  padding-bottom:8px;margin-bottom:10px;border-bottom:1px dashed var(--ticket-linha);
-}
-.hero-ticket dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 10px;font-size:13px}
-.hero-ticket dt{color:var(--ticket-ink-2)}
-.hero-ticket dd{margin:0;text-align:right;font-weight:700}
-/* estrela em SVG, para nao usar caractere/emoji como icone */
-.t-star{width:11px;height:11px;display:inline-block;vertical-align:-1px;color:var(--tijolo)}
 
 /* ---------- Faixa de confianca ---------- */
 .faixa{background:var(--preto-quente);border-block:1px solid var(--linha)}
@@ -491,8 +460,6 @@ ul{margin:0;padding:0;list-style:none}
 /* ---------- Movimento ---------- */
 .rv{opacity:0;transform:translateY(12px);transition:opacity 300ms ease-out,transform 300ms cubic-bezier(.2,.7,.3,1)}
 .rv.in{opacity:1;transform:none}
-.hero-anim{animation:heroIn 460ms cubic-bezier(.2,.7,.3,1) both}
-.hero-anim:nth-child(2){animation-delay:90ms}
 @keyframes heroIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
 @media (prefers-reduced-motion:reduce){
@@ -505,12 +472,6 @@ ul{margin:0;padding:0;list-style:none}
    RESPONSIVO — mobile-first nos ajustes abaixo
    ============================================================ */
 @media (max-width:1024px){
-  .hero-grid{grid-template-columns:1fr;gap:44px}
-  /* min-height + aspect-ratio geram largura minima automatica e estouram
-     a coluna; a proporcao sozinha ja define a altura. Mais alto que o
-     desktop para a foto e a comanda coexistirem sem colisao. */
-  .hero-panel{aspect-ratio:4/3;min-height:0;max-width:640px}
-  .hero-ticket{left:auto;right:16px;bottom:16px;width:min(210px,52%)}
   .tickets{grid-template-columns:repeat(2,1fr);gap:46px 22px}
   .ticket:nth-child(3){transform:rotate(.5deg)}
   .menu-list{grid-template-columns:repeat(2,1fr)}
@@ -554,10 +515,7 @@ ul{margin:0;padding:0;list-style:none}
   .ticket::before{top:-16px;height:26px}
   .faixa-grid{grid-template-columns:1fr}
   .faixa-item{padding:20px 4px}
-  .hero-facts{gap:14px 20px}
-  /* mais alto: da folga para o neon e a comanda coexistirem */
-  .hero-panel{aspect-ratio:3/4}
-  .hero-ticket{width:min(200px,62%);right:12px;bottom:12px}
+  .hero-facts{gap:12px 20px}
   .score{gap:12px}
   .score-num{font-size:50px}
   .galeria-grid{grid-template-columns:1fr;grid-auto-rows:200px}
@@ -609,9 +567,15 @@ ul{margin:0;padding:0;list-style:none}
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="topo">
-  <div class="wrap hero-grid">
-    <div class="hero-anim">
-      <p class="eyebrow">Desde 2019 • Candeias</p>
+  <!-- Video de fundo da marca. Sem src no HTML: o script so carrega em telas
+       maiores, com movimento permitido e fora de conexao economica. Ate la
+       (e sempre no celular) fica o poster, que e o quadro do proprio video. -->
+  <video class="hero-video" muted loop playsinline preload="none"
+         poster="assets/hero-poster.jpg" data-src="assets/hero-burguer-video.mp4"
+         aria-hidden="true" tabindex="-1"></video>
+
+  <div class="wrap">
+    <div class="hero-inner">
       <h1>O verdadeiro burguer.<em>Desde 2019.</em></h1>
       <p class="hero-lead">Hambúrguer, ambiente acolhedor e pedido fácil para aproveitar no salão, retirar ou receber em casa.</p>
 
@@ -629,13 +593,7 @@ ul{margin:0;padding:0;list-style:none}
 
       <div class="hero-facts">
         <p class="fact">
-          <span class="stars" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2v15.8L5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
-          </span>
+          <span class="stars" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2v15.8L5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></span>
           <b>4,6</b> <span>de 5</span>
         </p>
         <p class="fact">
@@ -650,30 +608,10 @@ ul{margin:0;padding:0;list-style:none}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           <b>Ter–Dom</b> <span>18:00–23:59</span>
         </p>
-      </div>
-    </div>
-
-    <div class="hero-anim">
-      <div class="hero-panel">
-        <!-- Foto de capa real da casa (hamburguer sobre o papel com a marca),
-             pela URL original do cardapio on-line. -->
-        <picture>
-          <source type="image/webp" srcset="assets/hero-burguer-640.webp 640w, assets/hero-burguer.webp 1280w" sizes="(max-width:1024px) 92vw, 46vw">
-          <img class="hero-img" src="assets/hero-burguer.jpg"
-               srcset="assets/hero-burguer-640.jpg 640w, assets/hero-burguer.jpg 1280w"
-               sizes="(max-width:1024px) 92vw, 46vw"
-               alt="Hambúrguer da Chef Burguer Piedade servido sobre o papel com a marca da casa" width="1280" height="465" fetchpriority="high" decoding="async">
-        </picture>
-
-        <figure class="hero-ticket">
-          <p class="t-head">Chef Burguer · Piedade</p>
-          <dl>
-            <dt>Avaliação</dt><dd>4,6 <svg class="t-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></dd>
-            <dt>Atendimento</dt><dd>Ter–Dom</dd>
-            <dt>Horário</dt><dd>18:00–23:59</dd>
-            <dt>Média</dt><dd>R$ 20–40</dd>
-          </dl>
-        </figure>
+        <p class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <b>Candeias</b> <span>Jaboatão</span>
+        </p>
       </div>
     </div>
   </div>
@@ -1176,6 +1114,24 @@ document.addEventListener('keydown', e => {
 
 /* Revelacao das secoes — respeita prefers-reduced-motion */
 const semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Video de fundo do hero: 3 MB nao devem cair no celular nem em conexao
+   economica. Fora dessas condicoes, o poster ja entrega a mesma cena. */
+const heroVideo = document.querySelector('.hero-video');
+if (heroVideo) {
+  const conn = navigator.connection || {};
+  const conexaoLeve = conn.saveData || /(^|-)2g$/.test(conn.effectiveType || '');
+  const telaGrande = window.matchMedia('(min-width:768px)');
+  /* Reavalia quando a tela muda de faixa (rotacao, redimensionamento),
+     em vez de decidir uma unica vez no carregamento. */
+  const carregarHero = () => {
+    if (heroVideo.src || semMovimento || conexaoLeve || !telaGrande.matches) return;
+    heroVideo.src = heroVideo.dataset.src;
+    heroVideo.play().catch(() => {});
+  };
+  carregarHero();
+  telaGrande.addEventListener('change', carregarHero);
+}
 
 /* Video do salao: se o usuario prefere menos movimento, nao reproduz —
    fica no poster (quadro do proprio salao). */
