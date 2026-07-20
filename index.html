@@ -167,18 +167,27 @@ ul{margin:0;padding:0;list-style:none}
 /* ---------- Hero: video em tela cheia ---------- */
 .hero{
   position:relative;isolation:isolate;overflow:hidden;
-  min-height:calc(100svh - var(--nav-h));
+  min-height:calc(82svh - var(--nav-h));
   display:flex;align-items:center;
-  padding:clamp(56px,8vw,110px) 0;
+  padding:clamp(36px,4vw,58px) 0;
   background:#170D0D;
 }
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+/* O video e renderizado 130% mais alto que o hero e ancorado no topo, entao
+   o rodape do quadro cai fora e e cortado pelo overflow. A marca d'agua do
+   Gemini foi medida em y 80,0%-86,5% do quadro; com 130% a fatia visivel
+   nunca passa de 76,9% da altura, deixando ~3,1% de folga. Vale para
+   qualquer proporcao de tela (em telas largas o corte e ainda maior). */
+.hero-video{
+  position:absolute;left:0;right:0;top:0;bottom:-30%;
+  width:100%;height:130%;
+  object-fit:cover;object-position:center top;z-index:-2;
+}
 /* Escurece o lado do texto e deixa o hamburguer respirar a direita.
    Sobre a faixa esquerda (~.90 de carvao) o creme fica acima de 12:1. */
 .hero::before{
   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:
-    linear-gradient(90deg,rgba(12,11,9,.95) 0%,rgba(12,11,9,.88) 34%,rgba(12,11,9,.58) 57%,rgba(12,11,9,.26) 76%,rgba(12,11,9,.52) 100%),
+    linear-gradient(90deg,rgba(12,11,9,.96) 0%,rgba(12,11,9,.93) 38%,rgba(12,11,9,.60) 60%,rgba(12,11,9,.26) 78%,rgba(12,11,9,.52) 100%),
     linear-gradient(180deg,rgba(12,11,9,.60) 0%,transparent 22%,transparent 58%,rgba(12,11,9,.78) 100%);
 }
 .hero-inner{max-width:64ch}
@@ -188,10 +197,10 @@ ul{margin:0;padding:0;list-style:none}
 .hero-inner > *:nth-child(4){animation-delay:210ms}
 .hero h1{font-size:clamp(44px,6.6vw,86px);text-transform:uppercase;margin:0 0 20px;text-shadow:0 2px 20px rgba(0,0,0,.55)}
 .hero h1 em{font-style:normal;color:var(--dourado);display:block}
-.hero-lead{font-size:clamp(16px,1.6vw,19px);line-height:1.7;color:#D9D3C7;max-width:46ch;margin:0 0 30px;text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.hero-lead{font-size:clamp(16px,1.6vw,19px);line-height:1.65;color:#D9D3C7;max-width:46ch;margin:0 0 26px;text-shadow:0 1px 12px rgba(0,0,0,.6)}
 .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
 
-.hero-facts{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:34px;padding-top:26px;border-top:1px solid rgba(243,232,210,.22)}
+.hero-facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:26px;padding-top:20px;border-top:1px solid rgba(243,232,210,.22)}
 .fact{display:flex;align-items:center;gap:9px;font-size:14.5px;color:#C4BDAF;white-space:nowrap}
 .fact b{font-family:var(--display);font-size:19px;font-weight:700;color:var(--creme);letter-spacing:.02em}
 .fact svg{width:16px;height:16px;color:var(--dourado);flex:none}
@@ -471,6 +480,13 @@ ul{margin:0;padding:0;list-style:none}
 /* ============================================================
    RESPONSIVO — mobile-first nos ajustes abaixo
    ============================================================ */
+/* Em telas largas, limita a altura do hero para o quadro caber na largura:
+   acima de ~41vw o object-fit:cover passa a cortar as laterais e o
+   hamburguer aparece zoomado, fugindo do enquadramento da referencia. */
+@media (min-width:768px){
+  .hero{min-height:min(calc(82svh - var(--nav-h)),41vw)}
+}
+
 @media (max-width:1024px){
   .tickets{grid-template-columns:repeat(2,1fr);gap:46px 22px}
   .ticket:nth-child(3){transform:rotate(.5deg)}
