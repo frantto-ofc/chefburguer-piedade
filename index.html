@@ -522,6 +522,15 @@ ul{margin:0;padding:0;list-style:none}
   body{padding-bottom:78px}
 }
 
+/* No celular o texto ocupa a largura toda, entao o gradiente horizontal do
+   desktop (que clareia a direita para o hamburguer respirar) deixaria parte
+   do texto sobre area clara. Aqui o overlay e vertical e mais parelho. */
+@media (max-width:767px){
+  .hero::before{
+    background:linear-gradient(180deg,rgba(12,11,9,.90) 0%,rgba(12,11,9,.80) 38%,rgba(12,11,9,.74) 62%,rgba(12,11,9,.88) 100%);
+  }
+}
+
 @media (max-width:640px){
   :root{--wrap:min(1180px,100% - 32px)}
   .tickets{grid-template-columns:1fr;gap:44px 0;max-width:400px;margin-inline:auto}
@@ -1131,22 +1140,21 @@ document.addEventListener('keydown', e => {
 /* Revelacao das secoes — respeita prefers-reduced-motion */
 const semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* Video de fundo do hero: 3 MB nao devem cair no celular nem em conexao
-   economica. Fora dessas condicoes, o poster ja entrega a mesma cena. */
+/* Video de fundo do hero: roda no celular tambem. Como sao ~3 MB, so entra
+   depois que o resto da pagina terminou de carregar — assim nao disputa banda
+   com as fontes e as fotos do cardapio, e o poster segura a cena ate la.
+   Fica de fora so em conexao economica ou 2G, onde o poster ja basta. */
 const heroVideo = document.querySelector('.hero-video');
 if (heroVideo) {
   const conn = navigator.connection || {};
-  const conexaoLeve = conn.saveData || /(^|-)2g$/.test(conn.effectiveType || '');
-  const telaGrande = window.matchMedia('(min-width:768px)');
-  /* Reavalia quando a tela muda de faixa (rotacao, redimensionamento),
-     em vez de decidir uma unica vez no carregamento. */
+  const conexaoLeve = conn.saveData || /(^|-)?2g$/.test(conn.effectiveType || '');
   const carregarHero = () => {
-    if (heroVideo.src || semMovimento || conexaoLeve || !telaGrande.matches) return;
+    if (heroVideo.src || semMovimento || conexaoLeve) return;
     heroVideo.src = heroVideo.dataset.src;
     heroVideo.play().catch(() => {});
   };
-  carregarHero();
-  telaGrande.addEventListener('change', carregarHero);
+  if (document.readyState === 'complete') carregarHero();
+  else window.addEventListener('load', carregarHero, { once: true });
 }
 
 /* Video do salao: se o usuario prefere menos movimento, nao reproduz —
