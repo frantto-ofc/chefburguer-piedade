@@ -545,8 +545,11 @@ ul{margin:0;padding:0;list-style:none}
     width:100%;white-space:normal;
     border-top:1px solid var(--linha);padding-top:18px;
   }
-  .credito-tech a{padding:6px 10px;margin-inline:0}
-  .logo-zerosete{height:44px}
+  /* O credito fica subordinado a marca do cliente: o brasao da Chef Burguer
+     tem 36px, entao o lockup da Zerosete vem menor que isso. O padding do
+     link mantem o alvo de toque em 44px. */
+  .credito-tech a{padding:8px 12px;margin-inline:0}
+  .logo-zerosete{height:28px}
 
   .hero::before{
     background:linear-gradient(180deg,rgba(12,11,9,.90) 0%,rgba(12,11,9,.80) 38%,rgba(12,11,9,.74) 62%,rgba(12,11,9,.88) 100%);
